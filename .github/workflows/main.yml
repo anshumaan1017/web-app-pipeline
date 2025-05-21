@@ -155,7 +155,7 @@ jobs:
           
       - name: Image Scan with Aqua SaaS Scanner 
         run: |  
-            docker run -e BUILD_JOB_NAME=uat-${{ env.IMAGE_NAME}} \
+            docker run -e BUILD_JOB_NAME=${{ env.IMAGE_NAME}} \
             --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v $(pwd):/scan-output \
