@@ -171,7 +171,7 @@ jobs:
             --token ${{ secrets.AQUA_TOKEN }} \
             --local ${{ env.DOCKER_REPOSITORY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
             --sariffile /scan-output/image-results.sarif \
-            --htmlfile /scan-output/image-results.html \
+            --htmlfile /artifacts/aqua-scan.html \
             --jsonfile /artifacts/aqua-scan.json \
             --layer-vulnerabilities
 
