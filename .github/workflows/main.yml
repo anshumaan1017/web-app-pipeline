@@ -172,6 +172,7 @@ jobs:
             --local ${{ env.DOCKER_REPOSITORY}}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
             --sariffile /scan-output/image-results.sarif \
             --htmlfile /scan-output/image-results.html \
+            --jsonfile /artifacts/aqua-scan.json \
             --layer-vulnerabilities
 
       - name: Filter ignored Aqua CVEs
@@ -199,9 +200,11 @@ jobs:
             grep -c "CVE-2025-27789\|CVE-2024-45590" filtered-artifacts/aqua-scan-filtered.html || echo "No ignored CVEs found in HTML"
 
       - name: Generate Elegant HTML Report
-        run: python3 ci_scripts/create_elegant_report.py \
+        run: |
+            python3 ci_scripts/create_elegant_report.py \
             filtered-artifacts/aqua-scan-filtered.json \
             filtered-artifacts/elegant-report.html
+
 
       - name: Upload Filtered Aqua Reports
         if: always()
