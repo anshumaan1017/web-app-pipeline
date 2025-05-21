@@ -2,10 +2,7 @@ name: CI/CD Pipeline with Aqua Security Scan and SBOM
 
 # Updated 2025-05-13: Added process_index_page.py to handle variables in the index page
 on:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch: 
 jobs:
   run_unit_tests:
     runs-on: ubuntu-latest
