@@ -16,7 +16,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Example CVEs for testing - this should not be used in production
 # Instead, we'll use the same dynamic approach as in filter_ignored_vulnerabilities.py
 EXAMPLE_IGNORED_CVES = [
-    "CVE-2025-27789"
+   "CVE-2025-27789",
+   "CVE-2024-45590"
 ]
 
 def replace_variables(text):
