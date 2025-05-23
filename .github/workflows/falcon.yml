@@ -3,7 +3,7 @@ name: Scan Container Images
 on:
   push: 
     branches:
-      - master
+      - main
 
 jobs:
   scan:
