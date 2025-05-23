@@ -1,0 +1,20 @@
+name: Scan Container Images
+
+on:
+  push: 
+    branches:
+      - master
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: CrowdStrike Container Image Scan
+        uses: crowdstrike/container-image-scan-action@v1.1.0
+        env:
+          FALCON_CLIENT_ID: "${{ secrets.FALCON_CLIENT_ID }}"
+          FALCON_CLIENT_SECRET: "${{ secrets.FALCON_CLIENT_SECRET }}"
+          FALCON_CLOUD_REGION: "{{ secrets.FALCON_CLOUD_REGION }}"
