@@ -1,6 +1,6 @@
 name: Cortex CLI Code Scan
 
-on:
+on: 
   push:
     branches: 
       - main
